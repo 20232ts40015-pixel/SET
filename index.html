@@ -108,31 +108,29 @@ a { text-decoration:none; color:inherit; }
 .label { font-weight:600; font-size:4vw; color:var(--text); }
 .desc { color: var(--muted); font-size:3vw; margin-top:2vw; }
 
-/* Rodapé fixo inferior */
+/* Rodapé fixo e discreto */
 .footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 6px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  color: #e0e0e0;
-  font-size: 3.2vw;
-  opacity: 0.9;
+  color: #d4d4d4;
+  font-size: 2.6vw;
+  opacity: 0.7;
   z-index: 10;
-  background: rgba(0,0,0,0.3);
-  padding: 6px 14px;
-  border-radius: 8px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.25);
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(3px);
 }
 .footer span {
   color: var(--brand);
   font-weight: 600;
-  text-shadow: 0 0 6px rgba(37,99,235,0.6);
 }
 .footer .icon-footer {
-  margin-right: 6px;
-  font-size: 3.5vw;
+  margin-right: 4px;
+  font-size: 2.8vw;
   vertical-align: middle;
 }
 
@@ -146,8 +144,8 @@ a { text-decoration:none; color:inherit; }
   .icon { width:50px; height:50px; font-size:24px; border-radius:14px;}
   .label { font-size:20px; }
   .desc { font-size:14px; margin-top:4px; }
-  .footer { font-size:14px; padding:6px 16px; bottom:14px; }
-  .footer .icon-footer { font-size:16px; }
+  .footer { font-size:12px; bottom:10px; padding:4px 10px; }
+  .footer .icon-footer { font-size:14px; }
 }
 </style>
 </head>
@@ -184,7 +182,7 @@ a { text-decoration:none; color:inherit; }
   </div>
 </div>
 
-<!-- Rodapé fixo -->
+<!-- Rodapé discreto -->
 <div class="footer">
   <span class="icon-footer">💻</span>
   Criado por <span>Anderson Sousa</span> — 2025

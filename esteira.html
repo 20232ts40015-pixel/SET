@@ -81,9 +81,10 @@ th { background:#007bff; color:white; }
       <tr>
         <th>#</th>
         <th>Tempo Bruto</th>
-        <th>Pares por dia</th>
-        <th>Pares por hora</th>
-        <th>Pares -10%</th>
+        <th>Pares/dia</th>
+        <th>Pares/hora</th>
+        <th>Pares/dia -10%</th>
+        <th>Pares/hora -10%</th>
       </tr>
     </thead>
     <tbody></tbody>
@@ -132,9 +133,18 @@ function register(){
   const minBruto=partialTime/1000;
   const paresDia=(528/minBruto).toFixed(2);
   const paresHora=(60/minBruto).toFixed(2);
-  const paresMenos10=(paresDia*0.9).toFixed(2);
+  const paresDiaMenos10=(paresDia*0.9).toFixed(2);
+  const paresHoraMenos10=(paresHora*0.9).toFixed(2);
+
   const row=document.createElement("tr");
-  row.innerHTML=`<td>${registerCount}</td><td>${formatTime(partialTime)}</td><td>${paresDia}</td><td>${paresHora}</td><td>${paresMenos10}</td>`;
+  row.innerHTML=`
+    <td>${registerCount}</td>
+    <td>${formatTime(partialTime)}</td>
+    <td>${paresDia}</td>
+    <td>${paresHora}</td>
+    <td>${paresDiaMenos10}</td>
+    <td>${paresHoraMenos10}</td>
+  `;
   logTableBody.appendChild(row);
   partialTime=0;
   updateDisplay();

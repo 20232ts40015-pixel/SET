@@ -26,7 +26,6 @@ body {
   padding: 10px;
   color: var(--text);
   position: relative;
-  flex-direction: column;
 }
 body::before {
   content:"";
@@ -108,30 +107,28 @@ a { text-decoration:none; color:inherit; }
 .label { font-weight:600; font-size:4vw; color:var(--text); }
 .desc { color: var(--muted); font-size:3vw; margin-top:2vw; }
 
-/* Rodapé fixo e discreto */
 .footer {
   position: fixed;
-  bottom: 6px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 5px;
+  width: 100%;
   text-align: center;
-  color: #d4d4d4;
-  font-size: 2.6vw;
-  opacity: 0.7;
+  font-size: 2.5vw;
+  color: #fff;
   z-index: 10;
-  background: rgba(0,0,0,0.25);
-  padding: 4px 10px;
-  border-radius: 6px;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
+  background-color: rgba(0,0,0,0.5);
+  padding: 6px 0;
 }
-.footer span {
+
+.footer a {
   color: var(--brand);
-  font-weight: 600;
+  font-weight:600;
+  text-decoration: none;
+  transition: 0.2s;
 }
-.footer .icon-footer {
-  margin-right: 4px;
-  font-size: 2.8vw;
-  vertical-align: middle;
+
+.footer a:hover {
+  text-decoration: underline;
 }
 
 @media(min-width:768px){
@@ -144,8 +141,7 @@ a { text-decoration:none; color:inherit; }
   .icon { width:50px; height:50px; font-size:24px; border-radius:14px;}
   .label { font-size:20px; }
   .desc { font-size:14px; margin-top:4px; }
-  .footer { font-size:12px; bottom:10px; padding:4px 10px; }
-  .footer .icon-footer { font-size:14px; }
+  .footer { font-size:14px; bottom:10px; }
 }
 </style>
 </head>
@@ -182,10 +178,12 @@ a { text-decoration:none; color:inherit; }
   </div>
 </div>
 
-<!-- Rodapé discreto -->
+<!-- Rodapé com link para WhatsApp -->
 <div class="footer">
-  <span class="icon-footer">💻</span>
-  Criado por <span>Anderson Sousa</span> — 2025
+  💻 Criado por 
+  <a href="https://wa.me/5573982017808?text=Ol%C3%A1%2C%20quero%20falar%20com%20você%21" target="_blank">
+    Anderson Sousa
+  </a> — 2025
 </div>
 
 <script>

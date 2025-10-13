@@ -5,15 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Produtividade da Esteira</title>
 <style>
+/* Corpo da página */
 body {
   font-family: Arial, sans-serif;
   background: url('https://img.freepik.com/fotos-premium/cronometro-no-fundo-desfocado_175024-13.jpg') no-repeat center center fixed;
   background-size: cover;
-  padding:5vw;
+  margin:0;
+  padding:2vw;
   text-align:center;
   color:#0f0;
   position: relative;
   min-height:100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 body::before {
   content:"";
@@ -25,13 +31,28 @@ body::before {
 }
 h1, a, .display-container, button, .log { position:relative; z-index:1; }
 
-h1 { font-size:8vw; margin-bottom:4vw; display:flex; align-items:center; justify-content:center; gap:2vw; }
-a { text-decoration:none; color:#0f0; font-size:4vw; margin-bottom:4vw; display:inline-block; }
+/* Cabeçalho */
+h1 {
+  font-size:8vw;
+  margin-bottom:4vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2vw;
+}
+a {
+  text-decoration:none;
+  color:#0f0;
+  font-size:4vw;
+  margin-bottom:4vw;
+  display:inline-block;
+}
 
+/* Display principal */
 .display-container {
   background:#111;
   color:#0f0;
-  padding:8vw;
+  padding:6vw;
   border-radius:4vw;
   margin:auto;
   margin-bottom:4vw;
@@ -39,26 +60,30 @@ a { text-decoration:none; color:#0f0; font-size:4vw; margin-bottom:4vw; display:
   max-width:500px;
   border: 0.3vw solid #0f0;
   box-shadow: 0 0 20px rgb(42, 90, 42), 0 0 40px rgb(29, 74, 29), 0 0 60px rgb(44, 103, 44);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .display {
-  font-size:18vw;
+  font-size:16vw;
   font-family:monospace;
   font-weight:bold;
   text-shadow:0 0 20px #0f0;
 }
 .partial-display {
-  font-size:10vw;
+  font-size:8vw;
   margin-top:2vw;
   text-shadow:0 0 10px #0f0;
 }
 .subtitle {
-  font-size:5vw;
+  font-size:4vw;
   margin-top:1vw;
 }
 
+/* Botões */
 button {
   padding:3vw 5vw;
-  margin:2vw;
+  margin:2vw 1vw;
   border:none;
   border-radius:3vw;
   font-weight:bold;
@@ -70,16 +95,30 @@ button {
 .reset { background:#6c757d; color:white; }
 .register { background:#007bff; color:white; width:90%; margin-top:3vw; font-size:5vw; }
 
+/* Log / tabela */
 .log {
   margin-top:4vw;
-  max-width:95%;
-  margin-left:auto;
-  margin-right:auto;
+  width:100%;
+  max-width:600px;
+  overflow-x:auto;
 }
-table { width:100%; border-collapse: collapse; margin-top:2vw; font-size:4vw; }
-th, td { border:1px solid #ccc; padding:2vw; text-align:center; }
-th { background:#007bff; color:white; }
+table {
+  width:100%;
+  border-collapse: collapse;
+  margin-top:2vw;
+  font-size:4vw;
+}
+th, td {
+  border:1px solid #ccc;
+  padding:2vw;
+  text-align:center;
+}
+th {
+  background:#007bff;
+  color:white;
+}
 
+/* Media queries para desktop */
 @media(min-width:768px){
   h1{ font-size:36px; gap:8px; }
   a{ font-size:18px; }

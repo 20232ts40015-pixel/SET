@@ -28,18 +28,54 @@ h1, a, .display-container, button, .log { position:relative; z-index:1; }
 h1 { font-size:8vw; margin-bottom:4vw; display:flex; align-items:center; justify-content:center; gap:2vw; }
 a { text-decoration:none; color:#0f0; font-size:4vw; margin-bottom:4vw; display:inline-block; }
 
-.display-container { background:#111; color:#0f0; padding:8vw; border-radius:4vw; margin:auto; margin-bottom:4vw; width:90%; max-width:500px;}
-.display { font-size:18vw; font-family:monospace; font-weight:bold; text-shadow:0 0 20px #0f0; }
-.partial-display { font-size:10vw; margin-top:2vw; text-shadow:0 0 10px #0f0; }
-.subtitle { font-size:5vw; margin-top:1vw; }
+.display-container {
+  background:#111;
+  color:#0f0;
+  padding:8vw;
+  border-radius:4vw;
+  margin:auto;
+  margin-bottom:4vw;
+  width:90%;
+  max-width:500px;
+  border: 0.3vw solid #0f0;
+  box-shadow: 0 0 20px rgb(42, 90, 42), 0 0 40px rgb(29, 74, 29), 0 0 60px rgb(44, 103, 44);
+}
+.display {
+  font-size:18vw;
+  font-family:monospace;
+  font-weight:bold;
+  text-shadow:0 0 20px #0f0;
+}
+.partial-display {
+  font-size:10vw;
+  margin-top:2vw;
+  text-shadow:0 0 10px #0f0;
+}
+.subtitle {
+  font-size:5vw;
+  margin-top:1vw;
+}
 
-button { padding:3vw 5vw; margin:2vw; border:none; border-radius:3vw; font-weight:bold; font-size:5vw; cursor:pointer; }
+button {
+  padding:3vw 5vw;
+  margin:2vw;
+  border:none;
+  border-radius:3vw;
+  font-weight:bold;
+  font-size:5vw;
+  cursor:pointer;
+}
 .start { background:#28a745; color:white; }
 .stop { background:#dc3545; color:white; }
 .reset { background:#6c757d; color:white; }
 .register { background:#007bff; color:white; width:90%; margin-top:3vw; font-size:5vw; }
 
-.log { margin-top:4vw; max-width:95%; margin-left:auto; margin-right:auto; }
+.log {
+  margin-top:4vw;
+  max-width:95%;
+  margin-left:auto;
+  margin-right:auto;
+}
 table { width:100%; border-collapse: collapse; margin-top:2vw; font-size:4vw; }
 th, td { border:1px solid #ccc; padding:2vw; text-align:center; }
 th { background:#007bff; color:white; }
@@ -47,7 +83,7 @@ th { background:#007bff; color:white; }
 @media(min-width:768px){
   h1{ font-size:36px; gap:8px; }
   a{ font-size:18px; }
-  .display-container{ padding:40px; border-radius:15px;}
+  .display-container{ padding:40px; border-radius:15px; border-width:2px; }
   .display{ font-size:90px; }
   .partial-display{ font-size:50px; }
   .subtitle{ font-size:20px; }
@@ -82,7 +118,6 @@ th { background:#007bff; color:white; }
         <th>#</th>
         <th>Tempo Bruto</th>
         <th>Pares/dia</th>
-        <th>Pares/hora</th>
         <th>Pares/dia -10%</th>
         <th>Pares/hora -10%</th>
       </tr>
@@ -141,7 +176,6 @@ function register(){
     <td>${registerCount}</td>
     <td>${formatTime(partialTime)}</td>
     <td>${paresDia}</td>
-    <td>${paresHora}</td>
     <td>${paresDiaMenos10}</td>
     <td>${paresHoraMenos10}</td>
   `;

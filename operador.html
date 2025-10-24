@@ -30,6 +30,8 @@ th { background:#007bff; color:white; }
 .modal-content { background:#111; margin:12% auto; padding:18px; border-radius:15px; width:90%; max-width:420px; color:#0f0; box-shadow:0 0 15px #0f0; text-align:center; }
 .modal-content h3 { margin-top:0; text-shadow:0 0 10px #0f0; }
 .modal-content p { font-size:5vw; margin:8px 0; }
+.share-btn { background:#25D366; color:white; border:none; padding:10px 20px; border-radius:10px; font-size:5vw; cursor:pointer; margin-top:12px; display:flex; align-items:center; justify-content:center; gap:10px; }
+.share-btn img { width:24px; height:24px; }
 .close-btn { background:#dc3545; color:white; border:none; padding:10px 20px; border-radius:10px; font-size:5vw; cursor:pointer; margin-top:12px; }
 @media (min-width:768px) {
   h1 { font-size:36px; gap:8px; }
@@ -41,7 +43,8 @@ th { background:#007bff; color:white; }
   button { font-size:18px; padding:10px 18px; border-radius:10px; }
   table { font-size:18px; }
   .modal-content p { font-size:16px; }
-  .close-btn { font-size:16px; padding:8px 14px; }
+  .close-btn, .share-btn { font-size:16px; padding:8px 14px; }
+  .share-btn img { width:20px; height:20px; }
 }
 </style>
 </head>
@@ -84,6 +87,10 @@ th { background:#007bff; color:white; }
   <div class="modal-content">
     <h3>📊 Resumo de Produtividade</h3>
     <p id="summaryText">Calculando...</p>
+    <button id="shareBtn" class="share-btn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      Compartilhar
+    </button>
     <button id="closeModalBtn" class="close-btn">Fechar</button>
   </div>
 </div>
@@ -102,6 +109,7 @@ const logTableBody=document.querySelector("#logTable tbody");
 const modal=document.getElementById("summaryModal");
 const summaryText=document.getElementById("summaryText");
 const closeModalBtn=document.getElementById("closeModalBtn");
+const shareBtn=document.getElementById("shareBtn");
 
 function formatTime(units){
   const totalMinutes=units/1000;
@@ -153,8 +161,11 @@ function showSummary(){
   if(rows.length===0){
     summaryText.innerHTML="Nenhum registro encontrado.<br>Registre pelo menos um tempo antes de gerar o resumo.";
     modal.style.display="block";
+    shareBtn.style.display="none";
     return;
   }
+  shareBtn.style.display="inline-flex";
+
   let totalUnits=0;
   rows.forEach(r=>{
     const units=parseInt(r.children[1].getAttribute('data-units'),10);
@@ -173,6 +184,18 @@ function showSummary(){
     👟 Pares por dia: <b>${paresDia}</b><br>
     👟 Pares por hora: <b>${paresHora}</b>
   `;
+
+  shareBtn.onclick=()=>{
+    let message="📊 *S.E.T TIME - Relatório de Produtividade*\n\n";
+    message+="🧾 *Tomadas de tempo (minutos):*\n";
+    rows.forEach((r,i)=>{
+      message+=`• ${i+1}️⃣ → ${r.children[1].textContent} min\n`;
+    });
+    message+=`\n📈 *Pares por dia:* ${paresDia}\n⏰ *Pares por hora:* ${paresHora}\n`;
+    const url="https://wa.me/?text="+encodeURIComponent(message);
+    window.open(url,"_blank");
+  };
+
   modal.style.display="block";
 }
 
